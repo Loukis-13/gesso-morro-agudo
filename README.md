@@ -1,1 +1,0 @@
-# gesso-morro-agudo
