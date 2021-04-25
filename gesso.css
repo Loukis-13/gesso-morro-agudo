@@ -45,7 +45,7 @@ h5{
 
 .foto{
   max-width: 8% !important;
-  max-height: 1px;
+  max-height: 1px !important;
 }
 
 .categoria {
