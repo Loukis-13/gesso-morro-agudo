@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Gesso Morro Agudo</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="gesso.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+    <link href="teste.csv" type="text/csv" />
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js"></script>
+</head>
+
+  <body onload="brython()" style="margin-bottom: 5%;">
+    <div id="cabeçalho">
+        <img src="img/logo.png" class="centro" id="logo">
+        <h1 class="centro" id="titulo">GESSO MORRO AGUDO</h1>
+        <h4 class="centro" id="itens" style="font-size: xx-large;">Molduras - Sancas - Forros - Rebaixamentos - Florões - Colunas - Capitéis - Drywall - Divisórioas - Gesso em pó</h4>
+        <h5 class="centro" style="margin-top: 10; color:red;"><i>José Nivaldo</i></h5>
+        <h5 class="centro" style="-webkit-text-stroke: 0.5px black;color: white;font-weight: bold;">FONES:(16)3851-4514   (16)99968-7370(CTBC)   (16)99320-0055(Claro)   (16)98100-1373(TIM)</h5>
+        <h5 class="centro" style="margin-top: 10;">Rua Ademar Xavier Dos Santos n°710 - Jardim Caliórnia</h5>
+        <h5 class="centro">CEP 14640-000 - Morro Agudo - SP</h5>
+    </div>
+
+    <div class="categoria">
+        <button id='m' class="dropbtn tipo"><i class="material-icons left">arrow_drop_down</i>MOLDURAS</button>
+        <ul id='m_' style="display: none;">
+
+        </ul>
+    </div>
+
+    <div class="categoria">
+        <button id='d' class="dropbtn tipo"><i class="material-icons left">arrow_drop_down</i>DRYWALL</button>
+        <ul id='d_' style="display: none;">
+
+        </ul>
+    </div>
+
+    <div class="categoria" style="margin-bottom: 3%;">
+        <button id='g' class="dropbtn tipo"><i class="material-icons left">arrow_drop_down</i>GESSO 3D</button>
+        <ul id='g_' style="display: none;">
+
+        </ul>
+    </div>
+
+    <div class="centro">
+        <img class="cartao" src="img/cartoes/1.jpg" alt="">
+        <img class="cartao" src="img/cartoes/2.jpg" alt="">
+        <img class="cartao" src="img/cartoes/3.jpg" alt="">
+    </div>
+    <div class="centro">
+        <img class="cartao" src="img/cartoes/4.jpg" alt="">
+        <img class="cartao" src="img/cartoes/5.jpg" alt="">
+    </div>
+    <div class="centro">
+        <img class="cartao" src="img/cartoes/6.jpg" alt="">
+        <img class="cartao" src="img/cartoes/7.jpg" alt="">
+        <img class="cartao" src="img/cartoes/8.jpg" alt="">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="jquery-csv.js"></script>
+    <script>
+        $.ajax({
+            url: "https://raw.githubusercontent.com/Loukis-13/gesso-morro-agudo/main/teste.csv",
+            dataType: "text"
+        }).done(function(data) {
+            for (i of $.csv.toObjects(data)){
+                if (i['m']) {
+                    document.getElementById(i['m']+'_').innerHTML += 
+                        `<div class="col l12">
+                            <div class="card horizontal grey lighten-3" style="margin-top: 0px;margin-bottom: 0;margin-left: 0%;">
+                                <div class="card-image foto">
+                                    <img src="`+ i['Saco de gesso'] + '.jpg' +`">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p class="left">`+ i['Saco de gesso'] + `</p>
+                                        <p class="right">`+ i['R$ 26,00'] + `</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`   
+                }
+            }
+        });
+    </script>
+
+    <script type="text/python">
+        from browser import document, html
+
+        _1=0
+        def f_m(e):
+            global _1
+            if _1==0:
+                document['m_'].style.display='block'
+                _1=1
+            else:
+                document['m_'].style.display='none'
+                _1=0
+
+        _2=0
+        def f_d(e):
+            global _2
+            if _2==0:
+                document['d_'].style.display='block'
+                _2=1
+            else:
+                document['d_'].style.display='none'
+                _2=0
+
+        _3=0
+        def f_g(e):
+            global _3
+            if _3==0:
+                document['g_'].style.display='block'
+                _3=1
+            else:
+                document['g_'].style.display='none'
+                _3=0
+
+        document['m'].bind('click', f_m)
+        document['d'].bind('click', f_d)
+        document['g'].bind('click', f_g)
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+
+</html>
