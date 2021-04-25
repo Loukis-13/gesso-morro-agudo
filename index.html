@@ -68,17 +68,17 @@
             dataType: "text"
         }).done(function(data) {
             for (i of $.csv.toObjects(data)){
-                if (i['m']) {
-                    document.getElementById(i['m']+'_').innerHTML += 
+                if (i['classe']) {
+                    document.getElementById(i['classe']+'_').innerHTML += 
                         `<div class="col l12">
                             <div class="card horizontal grey lighten-3" style="margin-top: 0px;margin-bottom: 0;margin-left: 0%;">
                                 <div class="card-image foto">
-                                    <img src="img/`+ i['Saco de gesso'] + `.jpg">
+                                    <img src="img/`+ i['item'] + `.jpg">
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
-                                        <p class="left">`+ i['Saco de gesso'] + `</p>
-                                        <p class="right">`+ i['R$ 26,00'] + `</p>
+                                        <p class="left">`+ i['item'] + `</p>
+                                        <p class="right">`+ i['preço'] + `</p>
                                     </div>
                                 </div>
                             </div>
