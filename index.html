@@ -64,7 +64,7 @@
     <script src="jquery-csv.js"></script>
     <script>
         $.ajax({
-            url: "teste.csv",
+            url: "https://raw.githubusercontent.com/Loukis-13/gesso-morro-agudo/page/teste.csv",
             dataType: "text"
         }).done(function(data) {
             for (i of $.csv.toObjects(data)){
