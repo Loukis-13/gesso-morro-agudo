@@ -64,7 +64,7 @@
     <script src="jquery-csv.js"></script>
     <script>
         $.ajax({
-            url: "https://raw.githubusercontent.com/Loukis-13/gesso-morro-agudo/main/teste.csv",
+            url: "https://raw.githubusercontent.com/Loukis-13/gesso-morro-agudo/page/teste.csv",
             dataType: "text"
         }).done(function(data) {
             for (i of $.csv.toObjects(data)){
@@ -73,7 +73,7 @@
                         `<div class="col l12">
                             <div class="card horizontal grey lighten-3" style="margin-top: 0px;margin-bottom: 0;margin-left: 0%;">
                                 <div class="card-image foto">
-                                    <img src="`+ i['Saco de gesso'] + '.jpg' +`">
+                                    <img src="img/`+ i['Saco de gesso'] + `.jpg">
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
